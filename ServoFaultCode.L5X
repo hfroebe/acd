@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RSLogix5000Content SchemaRevision="1.0" SoftwareRevision="32.00" TargetName="ServoFaultCode" TargetType="AddOnInstructionDefinition" TargetRevision="1.0 " TargetLastEdited="2020-08-04T18:08:22.114Z" ContainsContext="true" ExportDate="Fri Aug 07 13:45:21 2020" ExportOptions="References NoRawData L5KData DecoratedData Context Dependencies ForceProtectedEncoding AllProjDocTrans">
+<Controller Use="Context" Name="Y059_LHM">
+<DataTypes Use="Context">
+</DataTypes>
+<AddOnInstructionDefinitions Use="Context">
+<AddOnInstructionDefinition Use="Target" Name="ServoFaultCode" Revision="1.0" Vendor="YMC Process Technologies" ExecutePrescan="false" ExecutePostscan="false" ExecuteEnableInFalse="false" CreatedDate="2020-06-19T19:35:32.912Z" CreatedBy="AD\hmao" EditedDate="2020-08-04T18:08:22.114Z" EditedBy="AD\hfroebe"
+ SoftwareRevision="v32.00">
+<Parameters>
+<Parameter Name="EnableIn" TagType="Base" DataType="BOOL" Usage="Input" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Input - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="EnableOut" TagType="Base" DataType="BOOL" Usage="Output" Radix="Decimal" Required="false" Visible="false" ExternalAccess="Read Only">
+<Description>
+<![CDATA[Enable Output - System Defined Parameter]]>
+</Description>
+</Parameter>
+<Parameter Name="Axis_1" TagType="Base" DataType="AXIS_CIP_DRIVE" Usage="InOut" Required="true" Visible="true"/>
+<Parameter Name="DriveConnStatus" TagType="Base" DataType="DINT" Usage="Input" Radix="Hex" Required="true" Visible="true" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[16384]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Hex" Value="16#0000_4000"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="FaultCode" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+<Parameter Name="FaultType" TagType="Base" DataType="DINT" Usage="Output" Radix="Decimal" Required="true" Visible="true" ExternalAccess="Read Only">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</Parameter>
+</Parameters>
+<LocalTags>
+<LocalTag Name="A1_CIPAxisFaultsLSW" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="A1_CIPAxisFaultsMSW" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[45]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="45"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="A1_CIPAxisFaultsRA_LSW" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="A1_CIPAxisFaultsRA_MSW" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="A1_CIPInitializationFaults" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="A1_ModuleAlarmBits" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="A1_ModuleFaultBits" DataType="DINT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="DINT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="ErrorCode" DataType="DINT" Dimensions="10" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[[0,8192,0,0,0,0,0,0,0,0]]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<Array DataType="DINT" Dimensions="10" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="8192"/>
+<Element Index="[2]" Value="0"/>
+<Element Index="[3]" Value="0"/>
+<Element Index="[4]" Value="0"/>
+<Element Index="[5]" Value="0"/>
+<Element Index="[6]" Value="0"/>
+<Element Index="[7]" Value="0"/>
+<Element Index="[8]" Value="0"/>
+<Element Index="[9]" Value="0"/>
+</Array>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="TempCipAxisFaultsRA" DataType="DINT" Dimensions="2" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[[0,0]]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<Array DataType="DINT" Dimensions="2" Radix="Decimal">
+<Element Index="[0]" Value="0"/>
+<Element Index="[1]" Value="0"/>
+</Array>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="A1_CIPStartInhibits" DataType="INT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="A1_CIPStartInhibitsRA" DataType="INT" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[0]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="INT" Radix="Decimal" Value="0"/>
+</DefaultData>
+</LocalTag>
+<LocalTag Name="Drive_CommConnectionOK" DataType="BOOL" Radix="Decimal" ExternalAccess="Read/Write">
+<DefaultData Format="L5K">
+<![CDATA[1]]>
+</DefaultData>
+<DefaultData Format="Decorated">
+<DataValue DataType="BOOL" Radix="Decimal" Value="1"/>
+</DefaultData>
+</LocalTag>
+</LocalTags>
+<Routines>
+<Routine Name="Logic" Type="RLL">
+<RLLContent>
+<Rung Number="0" Type="N">
+<Comment>
+<![CDATA[Clear Fault Code]]>
+</Comment>
+<Text>
+<![CDATA[MOV(0,FaultCode)MOV(0,FaultType);]]>
+</Text>
+</Rung>
+<Rung Number="1" Type="N">
+<Comment>
+<![CDATA[Axis_1.CIPAxisFaults
+Fault Code Type: FLT Sxx
+Standard runtime exceptions.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="2" Type="N">
+<Comment>
+<![CDATA[
+If Axis fault does not =0, then read (GSV) the fault code. Move this LINT type to an array of 2 DINT's.]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.AxisFault,0)GSV(Axis,Axis_1,CIPAxisFaults,ErrorCode[0]);]]>
+</Text>
+</Rung>
+<Rung Number="3" Type="N">
+<Comment>
+<![CDATA[If the first DINT not = to 0, then compute to find which bit is on, then offset by 1 bit.]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(ErrorCode[0],0)CPT(A1_CIPAxisFaultsLSW,(LOG(ErrorCode[0]))/(LOG(2))+1)MOV(A1_CIPAxisFaultsLSW,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="4" Type="N">
+<Comment>
+<![CDATA[If the second DINT is not = to 0, then compute to find which bit is on, then offset by 32 bits.]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(ErrorCode[1],0)CPT(A1_CIPAxisFaultsMSW,(LOG(ErrorCode[1]))/(LOG(2))+32)MOV(A1_CIPAxisFaultsMSW,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="5" Type="N">
+<Comment>
+<![CDATA[Set Fault Type to 3]]>
+</Comment>
+<Text>
+<![CDATA[[NEQ(ErrorCode[0],0) ,NEQ(ErrorCode[1],0) ]MOV(3,FaultType);]]>
+</Text>
+</Rung>
+<Rung Number="6" Type="N">
+<Comment>
+<![CDATA[If fault =0, then clear the data.]]>
+</Comment>
+<Text>
+<![CDATA[EQU(Axis_1.AxisFault,0)[CLR(A1_CIPAxisFaultsLSW) ,CLR(A1_CIPAxisFaultsMSW) ];]]>
+</Text>
+</Rung>
+<Rung Number="7" Type="N">
+<Comment>
+<![CDATA[Axis_1.CIPAxisFaultsRA
+Fault Code Type: FLT Mxx
+Standard runtime exceptions.
+
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="8" Type="N">
+<Comment>
+<![CDATA[Copy single LINT fault data into 2 DINT data words.]]>
+</Comment>
+<Text>
+<![CDATA[COP(Axis_1.CIPAxisFaultsRA,TempCipAxisFaultsRA[0],2);]]>
+</Text>
+</Rung>
+<Rung Number="9" Type="N">
+<Comment>
+<![CDATA[
+If Axis fault does not =0, then read (GSV) the fault code. Move this LINT type to an array of 2 DINT's.]]>
+</Comment>
+<Text>
+<![CDATA[[NEQ(TempCipAxisFaultsRA[0],0) ,NEQ(TempCipAxisFaultsRA[1],0) ]GSV(Axis,Axis_1,CIPAxisFaultsRA,ErrorCode[2]);]]>
+</Text>
+</Rung>
+<Rung Number="10" Type="N">
+<Comment>
+<![CDATA[If the first DINT not = to 0, then compute to find which bit is on, then offset by 1 bit.]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(ErrorCode[2],0)CPT(A1_CIPAxisFaultsRA_LSW,(LOG(ErrorCode[2]))/(LOG(3))+1)MOV(A1_CIPAxisFaultsRA_LSW,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="11" Type="N">
+<Comment>
+<![CDATA[If the second DINT is not = to 0, then compute to find which bit is on, then offset by 32 bits.]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(ErrorCode[3],0)CPT(A1_CIPAxisFaultsRA_MSW,(LOG(ErrorCode[3]))/(LOG(2))+32)MOV(A1_CIPAxisFaultsRA_MSW,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="12" Type="N">
+<Comment>
+<![CDATA[Set Fault Type to 4]]>
+</Comment>
+<Text>
+<![CDATA[[NEQ(ErrorCode[2],0) ,NEQ(ErrorCode[3],0) ]MOV(4,FaultType);]]>
+</Text>
+</Rung>
+<Rung Number="13" Type="N">
+<Comment>
+<![CDATA[If fault =0, then clear the data. (HM Updated, June 19, 2020)]]>
+</Comment>
+<Text>
+<![CDATA[[EQU(TempCipAxisFaultsRA[0],0) CLR(A1_CIPAxisFaultsRA_LSW) ,EQU(TempCipAxisFaultsRA[1],0) CLR(A1_CIPAxisFaultsRA_MSW) ];]]>
+</Text>
+</Rung>
+<Rung Number="14" Type="N">
+<Comment>
+<![CDATA[Axis_1.CIPInitializationFaults
+Fault Code Type: INIT FLT Mxx
+Exceptions that prevent normal operation and occur during the initialization process.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="15" Type="N">
+<Comment>
+<![CDATA[
+If Axis fault does not =0, then read (GSV) the fault code. ]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPInitializationFaults,0)GSV(Axis,Axis_1,CIPInitializationFaults,A1_CIPInitializationFaults);]]>
+</Text>
+</Rung>
+<Rung Number="16" Type="N">
+<Comment>
+<![CDATA[If fault=0, then clear the data.]]>
+</Comment>
+<Text>
+<![CDATA[EQU(Axis_1.CIPInitializationFaults,0)CLR(A1_CIPInitializationFaults);]]>
+</Text>
+</Rung>
+<Rung Number="17" Type="N">
+<Comment>
+<![CDATA[if fault not = 0, ouput fault number]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPInitializationFaults,0)MOV(A1_CIPInitializationFaults,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="18" Type="N">
+<Comment>
+<![CDATA[Set Fault Type to 2]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPInitializationFaults,0)MOV(2,FaultType);]]>
+</Text>
+</Rung>
+<Rung Number="19" Type="N">
+<Comment>
+<![CDATA[Axis_1.CIPStartInhibits
+Fault Code Type: INIHIBIT
+Exceptions that prevent normal operation whenever the drive is inactive.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="20" Type="N">
+<Comment>
+<![CDATA[
+If Axis fault does not =0, then read (GSV) the fault code. ]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPStartInhibits,0)GSV(Axis,Axis_1,CIPStartInhibits,A1_CIPStartInhibits);]]>
+</Text>
+</Rung>
+<Rung Number="21" Type="N">
+<Comment>
+<![CDATA[If fault=0, then clear the data.]]>
+</Comment>
+<Text>
+<![CDATA[EQU(Axis_1.CIPStartInhibits,0)CLR(A1_CIPStartInhibits);]]>
+</Text>
+</Rung>
+<Rung Number="22" Type="N">
+<Comment>
+<![CDATA[If fault not =0, output fault code]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPStartInhibits,0)MOV(A1_CIPStartInhibits,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="23" Type="N">
+<Comment>
+<![CDATA[Set Fault Type to 1]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPStartInhibits,0)MOV(1,FaultType);]]>
+</Text>
+</Rung>
+<Rung Number="24" Type="N">
+<Comment>
+<![CDATA[Axis_1.CIPStartInhibitsRA
+Fault Code Type: INIHIBIT Mxx
+Exceptions that prevent normal operation whenever the drive is active.
+]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="25" Type="N">
+<Comment>
+<![CDATA[
+If Axis fault does not =0, then read (GSV) the fault code. ]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPStartInhibitsRA,0)GSV(Axis,Axis_1,CIPStartInhibitsRA,A1_CIPStartInhibitsRA);]]>
+</Text>
+</Rung>
+<Rung Number="26" Type="N">
+<Comment>
+<![CDATA[If fault=0, then clear the data.]]>
+</Comment>
+<Text>
+<![CDATA[EQU(Axis_1.CIPStartInhibitsRA,0)CLR(A1_CIPStartInhibitsRA);]]>
+</Text>
+</Rung>
+<Rung Number="27" Type="N">
+<Comment>
+<![CDATA[If fault not =0, output fault code]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPStartInhibitsRA,0)MOV(A1_CIPStartInhibitsRA,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="28" Type="N">
+<Comment>
+<![CDATA[Set Fault Type to 2]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.CIPStartInhibitsRA,0)MOV(2,FaultType);]]>
+</Text>
+</Rung>
+<Rung Number="29" Type="N">
+<Comment>
+<![CDATA[Monitor drive module entry status via GSV (Outside)]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="30" Type="N">
+<Comment>
+<![CDATA[If value = HEX 16#0000_4000, then communcations are OK.]]>
+</Comment>
+<Text>
+<![CDATA[MEQ(DriveConnStatus,61440,16384)OTE(Drive_CommConnectionOK);]]>
+</Text>
+</Rung>
+<Rung Number="31" Type="N">
+<Comment>
+<![CDATA[If connection to module is OK but a module alarm is detected then 
+read (GSV) the ModuleAlarmBits.]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Drive_CommConnectionOK)NEQ(Axis_1.ModuleAlarmStatus,0)GSV(Axis,Axis_1,ModuleAlarmBits,A1_ModuleAlarmBits);]]>
+</Text>
+</Rung>
+<Rung Number="32" Type="N">
+<Comment>
+<![CDATA[If fault=0, then clear the data.]]>
+</Comment>
+<Text>
+<![CDATA[EQU(Axis_1.ModuleAlarmStatus,0)CLR(A1_ModuleAlarmBits);]]>
+</Text>
+</Rung>
+<Rung Number="33" Type="N">
+<Comment>
+<![CDATA[If fault not =0, output fault code]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.ModuleAlarmStatus,0)MOV(A1_ModuleAlarmBits,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="34" Type="N">
+<Comment>
+<![CDATA[Set Fault Type to 6]]>
+</Comment>
+<Text>
+<![CDATA[NEQ(Axis_1.ModuleAlarmStatus,0)MOV(6,FaultType);]]>
+</Text>
+</Rung>
+<Rung Number="35" Type="N">
+<Comment>
+<![CDATA[If connection to module is OK but a module fault is detected then 
+read (GSV) the ModuleFaultBits.]]>
+</Comment>
+<Text>
+<![CDATA[NOP();]]>
+</Text>
+</Rung>
+<Rung Number="36" Type="N">
+<Text>
+<![CDATA[XIC(Drive_CommConnectionOK)XIC(Axis_1.ModuleFault)GSV(Axis,Axis_1,ModuleFaultBits,A1_ModuleFaultBits);]]>
+</Text>
+</Rung>
+<Rung Number="37" Type="N">
+<Comment>
+<![CDATA[If fault=0, then clear the data.]]>
+</Comment>
+<Text>
+<![CDATA[XIO(Axis_1.ModuleFault)CLR(A1_ModuleFaultBits);]]>
+</Text>
+</Rung>
+<Rung Number="38" Type="N">
+<Comment>
+<![CDATA[If fault not =0, output fault code]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Axis_1.ModuleFault)MOV(A1_ModuleFaultBits,FaultCode);]]>
+</Text>
+</Rung>
+<Rung Number="39" Type="N">
+<Comment>
+<![CDATA[Set Fault Type to 128]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Axis_1.ModuleFault)MOV(128,FaultType);]]>
+</Text>
+</Rung>
+<Rung Number="40" Type="N">
+<Comment>
+<![CDATA[Set Fault Type to 128 (HF added)]]>
+</Comment>
+<Text>
+<![CDATA[XIC(Axis_1.GuardFault)MOV(9,FaultCode)MOV(128,FaultType);]]>
+</Text>
+</Rung>
+</RLLContent>
+</Routine>
+</Routines>
+</AddOnInstructionDefinition>
+</AddOnInstructionDefinitions>
+</Controller>
+</RSLogix5000Content>
